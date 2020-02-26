@@ -2,13 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './CustomModal.st.css';
-import { dataHooks } from './constants';
-import CloseButton from '../CloseButton';
-import Divider from '../Divider';
-import Button from '../Button';
-import Heading from '../Heading/Heading';
-import Text from '../Text/Text';
-import Box from '../Box';
+import BaseModal from '../BaseModal';
 
 /** CustomModal */
 class CustomModal extends React.PureComponent {
@@ -57,103 +51,15 @@ class CustomModal extends React.PureComponent {
     removeContentPadding: false,
   };
 
-  _renderHeaderLayout = () => {
-    const { title, subtitle } = this.props;
-    return (
-      <div className={styles.header}>
-        {typeof title === 'string' ? (
-          <Heading dataHook={dataHooks.title} appearance={'H3'}>
-            {title}
-          </Heading>
-        ) : (
-          title
-        )}
-        {subtitle && <Text dataHook={dataHooks.subtitle}>{subtitle}</Text>}
-      </div>
-    );
-  };
-
-  _renderFooterLayout = () => {
-    const {
-      sideActions,
-      secondaryButtonText,
-      secondaryButtonOnClick,
-      secondaryButtonProps,
-      primaryButtonText,
-      primaryButtonOnClick,
-      primaryButtonProps,
-    } = this.props;
-    return (
-      <>
-        <Divider className={styles.footerDivider} />
-        <Box padding={5} verticalAlign="middle">
-          {sideActions && (
-            <div className={styles.sideActions}>{sideActions}</div>
-          )}
-          <div className={styles.buttons}>
-            {secondaryButtonText && (
-              <Button
-                onClick={secondaryButtonOnClick}
-                priority="secondary"
-                size="small"
-                {...secondaryButtonProps}
-              >
-                {secondaryButtonText}
-              </Button>
-            )}
-            {primaryButtonText && (
-              <Button
-                onClick={primaryButtonOnClick}
-                size="small"
-                {...primaryButtonProps}
-              >
-                {primaryButtonText}
-              </Button>
-            )}
-          </div>
-        </Box>
-      </>
-    );
-  };
-
   render() {
-    const {
-      dataHook,
-      primaryButtonText,
-      secondaryButtonText,
-      title,
-      removeContentPadding,
-      children,
-      sideActions,
-      footnote,
-      onCloseButtonClick,
-      width,
-    } = this.props;
-
-    const hasFooter = sideActions || primaryButtonText || secondaryButtonText;
-
+    const { width, dataHook } = this.props;
     return (
       <div
-        {...styles('root', { removeContentPadding }, this.props)}
+        {...styles('root', {}, this.props)}
         data-hook={dataHook}
         style={{ width }}
       >
-        {title && this._renderHeaderLayout()}
-        {children && <div className={styles.contentWrapper}>{children}</div>}
-        {hasFooter && this._renderFooterLayout()}
-        {footnote && (
-          <>
-            <Divider />
-            <div className={styles.footnote}>{footnote}</div>
-          </>
-        )}
-        <CloseButton
-          dataHook={dataHooks.closeButton}
-          className={styles.closeButton}
-          onClick={onCloseButtonClick}
-          size="large"
-          skin="dark"
-        />
+        <BaseModal {...this.props}></BaseModal>
       </div>
     );
   }

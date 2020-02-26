@@ -130,6 +130,7 @@ export const sidePanelTestkitFactory: any;
 export const fontUpgradeTestkitFactory: any;
 export const customModalTestkitFactory: any;
 export const statusIndicatorTestkitFactory: any;
+export const baseModalTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;

@@ -463,5 +463,8 @@
   },
   "StatusIndicator": {
     "path": "src/StatusIndicator"
+  },
+  "BaseModal": {
+    "path": "src/BaseModal"
   }
 }

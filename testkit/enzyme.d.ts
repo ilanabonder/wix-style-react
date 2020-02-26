@@ -133,6 +133,8 @@ import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
 
+import {BaseModalUniDriver} from '../src/BaseModal/BaseModal.uni.driver';
+
 type EnzymeTestkitFactory<T extends BaseDriver> = (
   params: EnzymeTestkitParams
 ) => T;
@@ -286,3 +288,4 @@ export const tooltipTestkitFactory: EnzymeTestkitFactory<TooltipDriver>;
 export const TooltipTestkit: EnzymeUniTestkitFactory<TooltipUniDriver>;
 export const customModalTestkitFactory: EnzymeUniTestkitFactory<CustomModalUniDriver>;
 export const statusIndicatorTestkitFactory: EnzymeUniTestkitFactory<StatusIndicatorUniDriver>;
+export const baseModalTestkitFactory: EnzymeUniTestkitFactory<BaseModalUniDriver>;

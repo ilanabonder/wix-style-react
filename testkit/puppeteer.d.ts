@@ -116,6 +116,8 @@ import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
 
+import {BaseModalUniDriver} from '../src/BaseModal/BaseModal.uni.driver';
+
 type PuppeteerTestkitFactory<T> = (
   params: PuppeteerTestkitParams
 ) => Promise<T>;
@@ -253,3 +255,4 @@ export const subheaderTestkitFactory: PuppeteerUniTestkitFactory<SubheaderUniDri
 export const toggleSwitchTestkitFactory: PuppeteerUniTestkitFactory<ToggleSwitchUniDriver>;
 export const customModalTestkitFactory: PuppeteerUniTestkitFactory<CustomModalUniDriver>;
 export const statusIndicatorTestkitFactory: PuppeteerUniTestkitFactory<StatusIndicatorUniDriver>;
+export const baseModalTestkitFactory: PuppeteerUniTestkitFactory<BaseModalUniDriver>;
