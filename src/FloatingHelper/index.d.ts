@@ -26,15 +26,10 @@ interface FloatingHelperOwnProps {
   initiallyOpened?: boolean;
 }
 
-type FloatingHelperPropsInner = FloatingHelperPopoverProps & FloatingHelperOwnProps;
-
-type PopoverProps = import('wix-ui-core/dist/src/components/popover').PopoverProps;
+type FloatingHelperPropsInner = FloatingHelperPopoverProps &
+  FloatingHelperOwnProps;
 
 type FloatingHelperPopoverProps = OmitPolyfill<
-  PopoverProps,
-  | 'shown'
-  | 'onMouseEnter'
-  | 'onMouseLeave'
-  | 'showArrow'
-  | 'width'
+  import('wix-ui-core/dist/src/components/popover').PopoverProps,
+  'shown' | 'onMouseEnter' | 'onMouseLeave' | 'showArrow' | 'width'
 >;
