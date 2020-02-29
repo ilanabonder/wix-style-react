@@ -5,7 +5,7 @@ import { OmitPolyfill } from '../common';
 export type FloatingHelperProps = import('wix-ui-core/dist/src/createHOC').WixComponentProps &
   FloatingHelperPropsInner;
 
-export default class FloatingHelper extends React.PureComponent<
+declare class FloatingHelper extends React.PureComponent<
   FloatingHelperProps
 > {
   open: () => void;
@@ -33,3 +33,5 @@ type FloatingHelperPopoverProps = OmitPolyfill<
   import('wix-ui-core/dist/src/components/popover').PopoverProps,
   'shown' | 'onMouseEnter' | 'onMouseLeave' | 'showArrow' | 'width'
 >;
+
+export default FloatingHelper;
