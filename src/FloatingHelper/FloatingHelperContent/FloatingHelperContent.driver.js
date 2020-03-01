@@ -47,6 +47,10 @@ export const floatingHelperContentDriverFactory = ({
     /** Get text of action button */
     getActionButtonText: () => actionButton().textContent,
 
+    /** naive way to check for stylable class */
+    matchesActionButtonClassName: className =>
+      !!Array.from(actionButton().classList).find(c => c.includes(className)),
+
     /** click on the action button */
     clickActionButton: () => eventTrigger.click(actionButton()),
   };
