@@ -132,7 +132,7 @@ import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
 import {BaseModalLayoutUniDriver} from '../src/BaseModalLayout/BaseModalLayout.uni.driver';
-import {MessageModalUniDriver} from '../src/MessageModal/MessageModal.uni.driver';
+import {MessageModalLayoutUniDriver} from '../src/MessageModalLayout/MessageModalLayout.uni.driver';
 
 type VanillaTestkitFactory<T extends BaseDriver> = (
   params: VanillaTeskitParams
@@ -288,4 +288,4 @@ export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
 export const customModalLayoutTestkitFactory: VanillaUniTestkitFactory<CustomModalLayoutUniDriver>;
 export const statusIndicatorTestkitFactory: VanillaUniTestkitFactory<StatusIndicatorUniDriver>;
 export const baseModalLayoutTestkitFactory: VanillaUniTestkitFactory<BaseModalLayoutUniDriver>;
-export const messageModalTestkitFactory: VanillaUniTestkitFactory<MessageModalUniDriver>;
+export const messageModalLayoutTestkitFactory: VanillaUniTestkitFactory<MessageModalLayoutUniDriver>;

@@ -17,7 +17,7 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
-import MessageModal from '..';
+import MessageModalLayout from '..';
 import Checkbox from '../../Checkbox';
 
 import BasicExample from '!raw-loader!./examples/BasicExample';
@@ -29,7 +29,7 @@ export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
 
-  component: MessageModal,
+  component: MessageModalLayout,
   componentPath: '..',
 
   componentProps: {
@@ -49,7 +49,7 @@ export default {
   sections: [
     header({
       sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/MessageModal/',
+        'https://github.com/wix/wix-style-react/tree/master/src/MessageModalLayout/',
     }),
 
     tabs([
@@ -66,7 +66,7 @@ export default {
 
           columns([
             importExample(
-              "import MessageModal from 'wix-style-react/MessageModal';",
+              "import MessageModalLayout from 'wix-style-react/MessageModalLayout';",
             ),
           ]),
 

@@ -5,7 +5,7 @@ import Checkbox from "../../../Checkbox";
 class FootnoteExample extends React.Component {
   render() {
     return (
-      <MessageModal
+      <MessageModalLayout
         primaryButtonText="Leave"
         primaryButtonOnClick={this.closeModal}
         secondaryButtonText="Cancel"
@@ -24,7 +24,7 @@ class FootnoteExample extends React.Component {
         <Text>
           Are you sure you want to leave this page? Your changes won't be saved.
         </Text>
-      </MessageModal>
+      </MessageModalLayout>
     )
   }
 }

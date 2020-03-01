@@ -4,7 +4,7 @@ import React from 'react';
 class BasicExample extends React.Component {
   render() {
     return (
-      <MessageModal
+      <MessageModalLayout
         primaryButtonText="Leave"
         primaryButtonOnClick={this.closeModal}
         secondaryButtonText="Cancel"
@@ -16,7 +16,7 @@ class BasicExample extends React.Component {
         <Text>
           Are you sure you want to leave this page? Your changes won't be saved.
         </Text>
-      </MessageModal>
+      </MessageModalLayout>
     )
   }
 }

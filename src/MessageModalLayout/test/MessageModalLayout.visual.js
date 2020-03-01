@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import MessageModal from '../MessageModal';
+import MessageModalLayout from '../MessageModalLayout';
 import { dataHooks } from '../constants';
 import Text from '../../Text/Text';
 
@@ -12,7 +12,7 @@ const SHORT_CONTENT = (
 );
 
 const commonProps = {
-  dataHook: dataHooks.messageModal,
+  dataHook: dataHooks.messageModalLayout,
   primaryButtonText: 'Confirm',
   secondaryButtonText: 'Cancel',
   title: 'Title',
@@ -50,7 +50,7 @@ tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`MessageModal${describe ? '/' + describe : ''}`, module).add(
       it,
-      () => <MessageModal {...commonProps} {...props} />,
+      () => <MessageModalLayout {...commonProps} {...props} />,
     );
   });
 });

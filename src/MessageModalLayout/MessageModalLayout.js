@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './MessageModal.st.css';
+import styles from './MessageModalLayout.st.css';
 import BaseModalLayout from '../BaseModalLayout';
 
 const themeMapping = {
@@ -16,8 +16,8 @@ const themeMapping = {
   },
 };
 
-/** MessageModal */
-class MessageModal extends React.PureComponent {
+/** MessageModalLayout */
+class MessageModalLayout extends React.PureComponent {
   _renderIllustration() {
     const { illustration } = this.props;
 
@@ -66,9 +66,9 @@ class MessageModal extends React.PureComponent {
   }
 }
 
-MessageModal.displayName = 'MessageModal';
+MessageModalLayout.displayName = 'MessageModalLayout';
 
-MessageModal.propTypes = {
+MessageModalLayout.propTypes = {
   ...BaseModalLayout.propTypes,
 
   /** Illustration URL or custom element. */
@@ -77,9 +77,9 @@ MessageModal.propTypes = {
   theme: PropTypes.oneOf(['standard', 'premium', 'alert']),
 };
 
-MessageModal.defaultProps = {
+MessageModalLayout.defaultProps = {
   ...BaseModalLayout.defaultProps,
   theme: 'standard',
 };
 
-export default MessageModal;
+export default MessageModalLayout;

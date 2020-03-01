@@ -1,15 +1,17 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
-import MessageModal from '../MessageModal';
-import { messageModalPrivateDriverFactory } from './MessageModal.private.uni.driver';
+import MessageModalLayout from '../MessageModalLayout';
+import { messageModalLayoutPrivateDriverFactory } from './MessageModalLayout.private.uni.driver';
 import { dataHooks } from '../constants';
 import { dataHooks as baseDataHooks } from '../../BaseModalLayout/constants';
 
-describe('MessageModal', () => {
-  const render = createRendererWithUniDriver(messageModalPrivateDriverFactory);
+describe('MessageModalLayout', () => {
+  const render = createRendererWithUniDriver(
+    messageModalLayoutPrivateDriverFactory,
+  );
   const commonProps = {
-    dataHook: dataHooks.messageModal,
+    dataHook: dataHooks.messageModalLayout,
     primaryButtonText: 'Confirm',
     primaryButtonProps: { dataHook: baseDataHooks.primaryButton },
     secondaryButtonText: 'Cancel',
@@ -23,7 +25,7 @@ describe('MessageModal', () => {
   describe('Render', () => {
     it('should render', async () => {
       const { driver } = render(
-        <MessageModal {...commonProps}>Content</MessageModal>,
+        <MessageModalLayout {...commonProps}>Content</MessageModalLayout>,
       );
 
       expect(await driver.exists()).toBe(true);
@@ -33,7 +35,9 @@ describe('MessageModal', () => {
 
     it('should render children', async () => {
       const children = <div data-hook="child">Child div</div>;
-      const { driver } = render(<MessageModal>{children}</MessageModal>);
+      const { driver } = render(
+        <MessageModalLayout>{children}</MessageModalLayout>,
+      );
 
       expect(await driver.childExists('[data-hook=child]')).toBe(true);
     });
@@ -42,13 +46,17 @@ describe('MessageModal', () => {
   describe('Illustration', () => {
     it('Illustration provided - should render with width of 630px', async () => {
       const { driver } = render(
-        <MessageModal illustration={'illustration.png'}>Content</MessageModal>,
+        <MessageModalLayout illustration={'illustration.png'}>
+          Content
+        </MessageModalLayout>,
       );
 
       expect(await driver.getModalWidth()).toEqual('630px');
     });
     it('No Illustration provided - should render with width of 510px', async () => {
-      const { driver } = render(<MessageModal>Content</MessageModal>);
+      const { driver } = render(
+        <MessageModalLayout>Content</MessageModalLayout>,
+      );
 
       expect(await driver.getModalWidth()).toEqual('510px');
     });
@@ -56,7 +64,7 @@ describe('MessageModal', () => {
   describe('Theme', () => {
     it('Default - Standard theme', async () => {
       const { driver } = render(
-        <MessageModal {...commonProps}>Content</MessageModal>,
+        <MessageModalLayout {...commonProps}>Content</MessageModalLayout>,
       );
 
       expect(await driver.primaryButtonHasSkin('standard')).toBe(true);
@@ -64,9 +72,9 @@ describe('MessageModal', () => {
     });
     it('Alert theme', async () => {
       const { driver } = render(
-        <MessageModal {...commonProps} theme="alert">
+        <MessageModalLayout {...commonProps} theme="alert">
           Content
-        </MessageModal>,
+        </MessageModalLayout>,
       );
 
       expect(await driver.primaryButtonHasSkin('destructive')).toBe(true);
@@ -74,9 +82,9 @@ describe('MessageModal', () => {
     });
     it('Premium theme', async () => {
       const { driver } = render(
-        <MessageModal {...commonProps} theme="premium">
+        <MessageModalLayout {...commonProps} theme="premium">
           Content
-        </MessageModal>,
+        </MessageModalLayout>,
       );
 
       expect(await driver.primaryButtonHasSkin('premium')).toBe(true);

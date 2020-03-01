@@ -467,7 +467,7 @@
   "BaseModalLayout": {
     "path": "src/BaseModalLayout"
   },
-  "MessageModal": {
-    "path": "src/MessageModal"
+  "MessageModalLayout": {
+    "path": "src/MessageModalLayout"
   }
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface MessageModalProps {
+export interface MessageModalLayoutProps {
   className?: string,
   dataHook?: string,
   title?: React.ReactNode,
@@ -23,4 +23,4 @@ export interface MessageModalProps {
 }
 
 
-export default class MessageModal extends React.PureComponent<MessageModalProps>{}
+export default class MessageModalLayout extends React.PureComponent<MessageModalLayoutProps>{}
