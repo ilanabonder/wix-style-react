@@ -79,6 +79,8 @@ class RichTextInputArea extends React.PureComponent {
           styles.root,
           !isEditorEmpty && styles.hidePlaceholder,
           disabled && styles.disabled,
+          !disabled && status === 'error' && styles.hasError,
+          !disabled && status === 'warning' && styles.hasWarning,
         )}
         // Using CSS variable instead of applying maxHeight on each child, down to the editor's content
         style={{ '--max-height': maxHeight }}
