@@ -22,6 +22,5 @@ export interface MessageModalProps {
   theme: 'standard' | 'alert' | 'premium',
 }
 
-export
 
 export default class MessageModal extends React.PureComponent<MessageModalProps>{}
