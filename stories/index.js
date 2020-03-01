@@ -184,6 +184,7 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 
 // 9. Modals
 require('../src/CustomModal/docs/design.story'); // 9.3 Custom Modal
+require('../src/MessageModal/docs/index.story'); // 9.2 Message Modal
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 require('../src/MessageBox/docs');
 

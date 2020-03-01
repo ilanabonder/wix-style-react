@@ -131,8 +131,8 @@ import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.dri
 import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver';
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
-
 import {BaseModalUniDriver} from '../src/BaseModal/BaseModal.uni.driver';
+import {MessageModalUniDriver} from '../src/MessageModal/MessageModal.uni.driver';
 
 type VanillaTestkitFactory<T extends BaseDriver> = (
   params: VanillaTeskitParams
@@ -288,3 +288,4 @@ export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
 export const customModalTestkitFactory: VanillaUniTestkitFactory<CustomModalUniDriver>;
 export const statusIndicatorTestkitFactory: VanillaUniTestkitFactory<StatusIndicatorUniDriver>;
 export const baseModalTestkitFactory: VanillaUniTestkitFactory<BaseModalUniDriver>;
+export const messageModalTestkitFactory: VanillaUniTestkitFactory<MessageModalUniDriver>;

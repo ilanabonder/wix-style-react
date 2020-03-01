@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface BaseModalProps {
+export interface MessageModalProps {
   className?: string,
   dataHook?: string,
   title?: React.ReactNode,
@@ -14,10 +14,14 @@ export interface BaseModalProps {
   secondaryButtonProps?: object,
   secondaryButtonOnClick?: () => void,
   onCloseButtonClick?: () => void,
-  removeContentPadding?: boolean,
   footnote?: React.ReactNode,
   sideActions?: React.ReactNode,
+  width?: string,
   children: React.ReactNode,
+  illustration: React.ReactNode,
+  theme: 'standard' | 'alert' | 'premium',
 }
 
-export default class BaseModal extends React.PureComponent<BaseModalProps>{}
+export
+
+export default class MessageModal extends React.PureComponent<MessageModalProps>{}

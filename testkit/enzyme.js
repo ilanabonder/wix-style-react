@@ -169,6 +169,7 @@ export const fontUpgradeTestkitFactory = enzymeUniTestkitFactoryCreator(load(req
 export const customModalTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const statusIndicatorTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
 export const baseModalTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/BaseModal/BaseModal.uni.driver')));
+export const messageModalTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/MessageModal/MessageModal.uni.driver')));
 export const sideMenuDrillTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

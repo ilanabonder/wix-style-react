@@ -115,8 +115,8 @@ import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.dri
 import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver';
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
-
 import {BaseModalUniDriver} from '../src/BaseModal/BaseModal.uni.driver';
+import {MessageModalUniDriver} from '../src/MessageModal/MessageModal.uni.driver';
 
 type PuppeteerTestkitFactory<T> = (
   params: PuppeteerTestkitParams

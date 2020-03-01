@@ -466,5 +466,8 @@
   },
   "BaseModal": {
     "path": "src/BaseModal"
+  },
+  "MessageModal": {
+    "path": "src/MessageModal"
   }
 }

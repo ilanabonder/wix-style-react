@@ -118,6 +118,7 @@ const files = [
   ['Tooltip.bundle.min.js', 40],
   ['SocialButton.bundle.min.js', 17],
   ['BaseModal.bundle.min.js', 10],
+  ['MessageModal.bundle.min.js', 10],
 ];
 
 module.exports = {

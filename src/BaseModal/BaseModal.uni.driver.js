@@ -1,7 +1,13 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { dataHooks } from './constants';
+import { buttonDriverFactory } from '../Button/Button.uni.driver';
 
 export const baseModalDriverFactory = (base, body) => {
+  const getPrimaryButton = () =>
+    buttonDriverFactory(base.$(`[data-hook="${dataHooks.primaryButton}"]`));
+  const getSecondaryButton = () =>
+    buttonDriverFactory(base.$(`[data-hook="${dataHooks.secondaryButton}"]`));
+
   return {
     ...baseUniDriverFactory(base, body),
 
@@ -25,12 +31,17 @@ export const baseModalDriverFactory = (base, body) => {
       base.$(`[data-hook="${dataHooks.closeButton}"]`).click(),
 
     /** Get the primary button's text */
-    getPrimaryButtonText: async () =>
-      base.$(`[data-hook="${dataHooks.primaryButton}"]`).text(),
+    getPrimaryButtonText: async () => getPrimaryButton().getButtonTextContent(),
+
+    /** Is 'skin' the primary button's skin */
+    primaryButtonHasSkin: async skin => getPrimaryButton().hasSkin(skin),
 
     /** Get the secondary button's text */
     getSecondaryButtonText: async () =>
       base.$(`[data-hook="${dataHooks.secondaryButton}"]`).text(),
+
+    /** Is 'skin' the secondary button's skin */
+    secondaryButtonHasSkin: async skin => getSecondaryButton().hasSkin(skin),
 
     /** Get the modal's width from the wrapping div style */
     getModalWidth: async () => (await base._prop('style')).width,

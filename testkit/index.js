@@ -169,6 +169,7 @@ export const fontUpgradeTestkitFactory = uniTestkitFactoryCreator(load(require('
 export const customModalTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const statusIndicatorTestkitFactory = uniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
 export const baseModalTestkitFactory = uniTestkitFactoryCreator(load(require('../src/BaseModal/BaseModal.uni.driver')));
+export const messageModalTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MessageModal/MessageModal.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

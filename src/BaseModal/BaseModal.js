@@ -15,10 +15,6 @@ class BaseModal extends React.PureComponent {
   static displayName = 'BaseModal';
 
   static propTypes = {
-    /** additional css classes */
-    className: PropTypes.string,
-    /** data hook for testing */
-    dataHook: PropTypes.string,
     /** The modal's title */
     title: PropTypes.node,
     /** The modal's subtitle */
@@ -43,8 +39,6 @@ class BaseModal extends React.PureComponent {
     footnote: PropTypes.node,
     /** side actions node, to be rendered as the first element on the same row as the action buttons */
     sideActions: PropTypes.node,
-    /** Specify the exact width of the modal */
-    width: PropTypes.string,
     /** the children / content of the modal */
     children: PropTypes.node.isRequired,
   };
@@ -127,7 +121,6 @@ class BaseModal extends React.PureComponent {
       sideActions,
       footnote,
       onCloseButtonClick,
-      width,
     } = this.props;
 
     const hasFooter = sideActions || primaryButtonText || secondaryButtonText;
@@ -136,7 +129,6 @@ class BaseModal extends React.PureComponent {
       <div
         {...styles('root', { removeContentPadding }, this.props)}
         data-hook={dataHook}
-        style={{ width }}
       >
         {title && this._renderHeaderLayout()}
         {children && <div className={styles.contentWrapper}>{children}</div>}
