@@ -2,6 +2,6 @@ import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
   category: Category.COMPONENTS,
-  storyName: 'CustomModal',
+  storyName: 'CustomModalLayout',
   dataHook: 'story-custom-modal',
 };

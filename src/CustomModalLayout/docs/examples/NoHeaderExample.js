@@ -1,21 +1,23 @@
 /* eslint-disable */
 import React from 'react';
 import Box from 'wix-style-react/Box';
+import Checkbox from "../../../Checkbox";
 
-class NoFooterExample extends React.Component {
+class NoHeaderExample extends React.Component {
   render() {
     return (
       <Box>
-        <CustomModal
-          title="Title"
-          subtitle="Subtitle"
+        <CustomModalLayout
+          primaryButtonText="Save"
+          secondaryButtonText="Cancel"
+          sideActions={(<Checkbox>Checkbox</Checkbox>)}
           footnote="footnote"
         >
           <Text>
             If you leave now, changes you have made here won't be saved. Are you
             sure you want to leave?
           </Text>
-        </CustomModal>
+        </CustomModalLayout>
       </Box>
     );
   }

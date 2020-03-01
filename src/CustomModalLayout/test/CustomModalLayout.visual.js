@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
-import CustomModal from '../CustomModal';
+import CustomModalLayout from '../CustomModalLayout';
 import Text from '../../Text/Text';
 import { dataHooks } from '../constants';
 import Box from '../../Box';
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import { customModalPrivateDriverFactory } from './CustomModal.private.uni.driver';
+import { customModalLayoutPrivateDriverFactory } from './CustomModalLayout.private.uni.driver';
 import Checkbox from '../../Checkbox';
 
 const LONG_CONTENT = (
@@ -48,7 +48,7 @@ const SHORT_CONTENT = (
 );
 
 const commonProps = {
-  dataHook: dataHooks.customModal,
+  dataHook: dataHooks.customModalLayout,
   primaryButtonText: 'Confirm',
   secondaryButtonText: 'Cancel',
   title: 'Title',
@@ -137,11 +137,11 @@ const tests = [
   },
 ];
 
-const customModalTestkitFactory = uniTestkitFactoryCreator(
-  customModalPrivateDriverFactory,
+const customModalLayoutTestkitFactory = uniTestkitFactoryCreator(
+  customModalLayoutPrivateDriverFactory,
 );
 const createDriver = dataHook =>
-  customModalTestkitFactory({
+  customModalLayoutTestkitFactory({
     wrapper: document.body,
     dataHook,
   });
@@ -151,12 +151,12 @@ const InteractiveCustomModalLayout = ({ componentDidMount, ...props }) => {
     componentDidMount && componentDidMount();
   }, [componentDidMount]);
 
-  return <CustomModal {...props} />;
+  return <CustomModalLayout {...props} />;
 };
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`CustomModal${describe ? '/' + describe : ''}`, module).add(
+    storiesOf(`CustomModalLayout${describe ? '/' + describe : ''}`, module).add(
       it,
       () => (
         <Box maxHeight={'600px'} maxWidth={'1000px'}>

@@ -458,8 +458,8 @@
   "FontUpgrade": {
     "path": "src/FontUpgrade"
   },
-  "CustomModal": {
-    "path": "src/CustomModal"
+  "CustomModalLayout": {
+    "path": "src/CustomModalLayout"
   },
   "StatusIndicator": {
     "path": "src/StatusIndicator"

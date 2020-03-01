@@ -3,7 +3,7 @@ import React from 'react';
 import Modal from 'wix-style-react/Modal';
 import Button from 'wix-style-react/Button';
 import Box from 'wix-style-react/Box';
-import CustomModal from "../../CustomModal";
+import CustomModalLayout from "../../CustomModalLayout";
 
 class MarketingExample extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class MarketingExample extends React.Component {
       <>
         <Button onClick={this.openModal}>Open Modal</Button>
         <Modal isOpen={isModalOpened} onRequestClose={this.closeModal} shouldCloseOnOverlayClick >
-          <CustomModal width="800px" removeContentPadding onCloseButtonClick={this.closeModal}>
+          <CustomModalLayout width="800px" removeContentPadding onCloseButtonClick={this.closeModal}>
             <Card>
               <MarketingLayout
                 title={
@@ -44,7 +44,7 @@ class MarketingExample extends React.Component {
                 actions={<Button>Add to Cart</Button>}
               />
             </Card>
-          </CustomModal>
+          </CustomModalLayout>
         </Modal>
       </>
     );

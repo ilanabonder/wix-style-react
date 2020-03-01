@@ -29,7 +29,7 @@ import {ColorPickerDriver} from '../src/ColorPicker/ColorPicker.driver';
 import {ComposerHeaderUniDriver} from '../src/ComposerHeader/ComposerHeader.uni.driver';
 import {ContactItemBuilderDriver} from '../src/ContactItemBuilder/ContactItemBuilder.driver';
 import {CounterBadgeDriver} from '../src/CounterBadge/CounterBadge.driver';
-import {CustomModalUniDriver} from '../src/CustomModal/CustomModal.uni.driver';
+import {CustomModalLayoutUniDriver} from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
 import {DataTableDriver} from '../src/DataTable/DataTable.driver';
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
 import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
@@ -285,7 +285,7 @@ export const messageBoxFunctionalLayoutTestkitFactory: VanillaTestkitFactory<Mes
 export const cardSubheaderTestkitFactory: VanillaUniTestkitFactory<SubheaderUniDriver>;
 export const tooltipTestkitFactory: VanillaTestkitFactory<TooltipDriver>;
 export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
-export const customModalTestkitFactory: VanillaUniTestkitFactory<CustomModalUniDriver>;
+export const customModalLayoutTestkitFactory: VanillaUniTestkitFactory<CustomModalLayoutUniDriver>;
 export const statusIndicatorTestkitFactory: VanillaUniTestkitFactory<StatusIndicatorUniDriver>;
 export const baseModalTestkitFactory: VanillaUniTestkitFactory<BaseModalUniDriver>;
 export const messageModalTestkitFactory: VanillaUniTestkitFactory<MessageModalUniDriver>;

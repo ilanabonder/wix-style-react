@@ -290,7 +290,7 @@ export default {
     },
   },
 
-  CustomModal: {
+  CustomModalLayout: {
     props: {
       children: <div />,
     },

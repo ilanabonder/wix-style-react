@@ -1,14 +1,16 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
-import CustomModal from '../CustomModal';
-import { customModalPrivateDriverFactory } from './CustomModal.private.uni.driver';
+import CustomModalLayout from '../CustomModalLayout';
+import { customModalLayoutPrivateDriverFactory } from './CustomModalLayout.private.uni.driver';
 import Checkbox from '../../Checkbox';
 import { dataHooks } from '../constants';
 import { dataHooks as baseDataHooks } from '../../BaseModal/constants';
 
-describe('CustomModal', () => {
-  const render = createRendererWithUniDriver(customModalPrivateDriverFactory);
+describe('CustomModalLayout', () => {
+  const render = createRendererWithUniDriver(
+    customModalLayoutPrivateDriverFactory,
+  );
 
   afterEach(() => {
     cleanup();
@@ -16,15 +18,15 @@ describe('CustomModal', () => {
 
   it('should render', async () => {
     const { driver } = render(
-      <CustomModal
-        dataHook={dataHooks.customModal}
+      <CustomModalLayout
+        dataHook={dataHooks.customModalLayout}
         primaryButtonText={'Confirm'}
         primaryButtonProps={{ dataHook: baseDataHooks.primaryButton }}
         secondaryButtonText={'Cancel'}
         secondaryButtonProps={{ dataHook: baseDataHooks.secondaryButton }}
       >
         Content
-      </CustomModal>,
+      </CustomModalLayout>,
     );
 
     expect(await driver.exists()).toBe(true);
@@ -33,7 +35,9 @@ describe('CustomModal', () => {
   });
   it('should render children', async () => {
     const children = <div data-hook="child">Child div</div>;
-    const { driver } = render(<CustomModal>{children}</CustomModal>);
+    const { driver } = render(
+      <CustomModalLayout>{children}</CustomModalLayout>,
+    );
 
     expect(await driver.childExists('[data-hook=child]')).toBe(true);
   });
@@ -41,7 +45,7 @@ describe('CustomModal', () => {
   it('should receive class name', async () => {
     const expectedClass = 'classy';
     const { driver } = render(
-      <CustomModal className={expectedClass}>Content</CustomModal>,
+      <CustomModalLayout className={expectedClass}>Content</CustomModalLayout>,
     );
 
     expect(await driver.hasClass(expectedClass)).toBe(true);
@@ -49,14 +53,18 @@ describe('CustomModal', () => {
 
   it('should render with the given width', async () => {
     const width = '600px';
-    const { driver } = render(<CustomModal width={width}>Content</CustomModal>);
+    const { driver } = render(
+      <CustomModalLayout width={width}>Content</CustomModalLayout>,
+    );
 
     expect(await driver.getModalWidth()).toEqual(width);
   });
 
   it('should render title', async () => {
     const title = 'Modal Title';
-    const { driver } = render(<CustomModal title={title}>Content</CustomModal>);
+    const { driver } = render(
+      <CustomModalLayout title={title}>Content</CustomModalLayout>,
+    );
 
     expect(await driver.getTitleText()).toEqual(title);
   });
@@ -65,7 +73,7 @@ describe('CustomModal', () => {
     const titleText = 'Modal Title';
     const titleNode = <div data-hook={baseDataHooks.title}>{titleText}</div>;
     const { driver } = render(
-      <CustomModal title={titleNode}>Content</CustomModal>,
+      <CustomModalLayout title={titleNode}>Content</CustomModalLayout>,
     );
 
     expect(await driver.getTitleText()).toEqual(titleText);
@@ -75,9 +83,9 @@ describe('CustomModal', () => {
     const subtitle = 'Subtitle here';
     const title = 'Modal Title';
     const { driver } = render(
-      <CustomModal title={title} subtitle={subtitle}>
+      <CustomModalLayout title={title} subtitle={subtitle}>
         Content
-      </CustomModal>,
+      </CustomModalLayout>,
     );
 
     expect(await driver.getSubtitleText()).toEqual(subtitle);
@@ -89,7 +97,9 @@ describe('CustomModal', () => {
       primaryButtonOnClick: jest.fn(),
       primaryButtonProps: { dataHook: baseDataHooks.primaryButton },
     };
-    const { driver } = render(<CustomModal {...props}>Content</CustomModal>);
+    const { driver } = render(
+      <CustomModalLayout {...props}>Content</CustomModalLayout>,
+    );
     await driver.clickPrimaryButton();
     expect(props.primaryButtonOnClick).toHaveBeenCalledTimes(1);
   });
@@ -100,7 +110,9 @@ describe('CustomModal', () => {
       secondaryButtonOnClick: jest.fn(),
       secondaryButtonProps: { dataHook: baseDataHooks.secondaryButton },
     };
-    const { driver } = render(<CustomModal {...props}>Content</CustomModal>);
+    const { driver } = render(
+      <CustomModalLayout {...props}>Content</CustomModalLayout>,
+    );
     await driver.clickSecondaryButton();
     expect(props.secondaryButtonOnClick).toHaveBeenCalledTimes(1);
   });
@@ -108,7 +120,9 @@ describe('CustomModal', () => {
     const props = {
       onCloseButtonClick: jest.fn(),
     };
-    const { driver } = render(<CustomModal {...props}>Content</CustomModal>);
+    const { driver } = render(
+      <CustomModalLayout {...props}>Content</CustomModalLayout>,
+    );
 
     await driver.clickCloseButton();
 
@@ -117,24 +131,24 @@ describe('CustomModal', () => {
 
   it('should allow changing the primary button text', async () => {
     const { driver } = render(
-      <CustomModal
+      <CustomModalLayout
         primaryButtonText="Press me"
         primaryButtonProps={{ dataHook: baseDataHooks.primaryButton }}
       >
         Content
-      </CustomModal>,
+      </CustomModalLayout>,
     );
     expect(await driver.getPrimaryButtonText()).toEqual('Press me');
   });
 
   it('should allow changing the secondary button text', async () => {
     const { driver } = render(
-      <CustomModal
+      <CustomModalLayout
         secondaryButtonText="Don't press me"
         secondaryButtonProps={{ dataHook: baseDataHooks.secondaryButton }}
       >
         Content
-      </CustomModal>,
+      </CustomModalLayout>,
     );
     expect(await driver.getSecondaryButtonText()).toEqual("Don't press me");
   });
@@ -148,7 +162,7 @@ describe('CustomModal', () => {
       </div>
     );
     const { driver } = render(
-      <CustomModal sideActions={sideActions}>Content</CustomModal>,
+      <CustomModalLayout sideActions={sideActions}>Content</CustomModalLayout>,
     );
 
     expect(await driver.childExists(selector)).toBe(true);
@@ -159,7 +173,7 @@ describe('CustomModal', () => {
     const selector = '[data-hook="' + dataHook + '"]';
     const footnote = <div data-hook={dataHook}>Footnote here</div>;
     const { driver } = render(
-      <CustomModal footnote={footnote}>Content</CustomModal>,
+      <CustomModalLayout footnote={footnote}>Content</CustomModalLayout>,
     );
 
     expect(await driver.childExists(selector)).toBe(true);

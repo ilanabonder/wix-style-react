@@ -20,7 +20,7 @@ class ModalExample extends React.Component {
       <Box>
         <Button onClick={this.openModal}>Open Modal</Button>
         <Modal isOpen={isModalOpened} onRequestClose={this.closeModal} shouldCloseOnOverlayClick >
-          <CustomModal width="1254px"
+          <CustomModalLayout width="1254px"
             primaryButtonText="Save"
             primaryButtonOnClick={this.closeModal}
             secondaryButtonText="Cancel"
@@ -34,7 +34,7 @@ class ModalExample extends React.Component {
               If you leave now, changes you have made here won't be saved. Are you
               sure you want to leave?
             </Text>
-          </CustomModal>
+          </CustomModalLayout>
         </Modal>
       </Box>
     );

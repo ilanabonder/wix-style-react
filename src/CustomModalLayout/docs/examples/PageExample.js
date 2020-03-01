@@ -19,7 +19,7 @@ class PageExample extends React.Component {
       <>
         <Button onClick={this.openModal}>Open Modal</Button>
         <Modal isOpen={isModalOpened} onRequestClose={this.closeModal} shouldCloseOnOverlayClick >
-          <CustomModal width="1254px"
+          <CustomModalLayout width="1254px"
             title="Title"
             removeContentPadding
             primaryButtonText="Save"
@@ -52,7 +52,7 @@ class PageExample extends React.Component {
                 </Box>
               </Page.Content>
             </Page>
-          </CustomModal>
+          </CustomModalLayout>
         </Modal>
       </>
     );

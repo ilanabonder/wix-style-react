@@ -29,7 +29,7 @@ import {ColorInputUniDriver} from '../src/ColorInput/ColorInput.uni.driver';
 import {ColorPickerUniDriver} from '../src/ColorPicker/ColorPicker.uni.driver';
 import {ComposerHeaderUniDriver} from '../src/ComposerHeader/ComposerHeader.uni.driver';
 import {ContactItemBuilderUniDriver} from '../src/ContactItemBuilder/ContactItemBuilder.uni.driver';
-import {CustomModalUniDriver} from '../src/CustomModal/CustomModal.uni.driver';
+import {CustomModalLayoutUniDriver} from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
 import {DataTableUniDriver} from '../src/DataTable/DataTable.uni.driver';
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
 import {DividerUniDriver} from '../src/Divider/Divider.uni.driver';
@@ -253,6 +253,6 @@ export const messageBoxMarketerialLayoutTestkitFactory: PuppeteerUniTestkitFacto
 export const messageBoxFunctionalLayoutTestkitFactory: PuppeteerUniTestkitFactory<MessageBoxFunctionalLayoutUniDriver>;
 export const subheaderTestkitFactory: PuppeteerUniTestkitFactory<SubheaderUniDriver>;
 export const toggleSwitchTestkitFactory: PuppeteerUniTestkitFactory<ToggleSwitchUniDriver>;
-export const customModalTestkitFactory: PuppeteerUniTestkitFactory<CustomModalUniDriver>;
+export const customModalLayoutTestkitFactory: PuppeteerUniTestkitFactory<CustomModalLayoutUniDriver>;
 export const statusIndicatorTestkitFactory: PuppeteerUniTestkitFactory<StatusIndicatorUniDriver>;
 export const baseModalTestkitFactory: PuppeteerUniTestkitFactory<BaseModalUniDriver>;

@@ -3,7 +3,7 @@ import React from 'react';
 import Checkbox from "../../../Checkbox";
 import Box from "../../../Box";
 import Table from "../../../Table";
-import CustomModal from "../../../CustomModal";
+import CustomModalLayout from "../../../CustomModalLayout";
 
 class TableExample extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class TableExample extends React.Component {
     ];
     return (
       <Box maxHeight="400px">
-        <CustomModal
+        <CustomModalLayout
           removeContentPadding
           primaryButtonText="Save"
           primaryButtonOnClick={this.closeModal}
@@ -53,7 +53,7 @@ class TableExample extends React.Component {
               />
             )}
           </Table>
-        </CustomModal>
+        </CustomModalLayout>
       </Box>
     )
   }

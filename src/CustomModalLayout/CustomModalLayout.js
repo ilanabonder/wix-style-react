@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './CustomModal.st.css';
+import styles from './CustomModalLayout.st.css';
 import BaseModal from '../BaseModal';
 
-/** CustomModal */
-class CustomModal extends React.PureComponent {
-  static displayName = 'CustomModal';
+/** CustomModalLayout */
+class CustomModalLayout extends React.PureComponent {
+  static displayName = 'CustomModalLayout';
 
   static propTypes = {
     ...BaseModal.propTypes,
@@ -42,4 +42,4 @@ class CustomModal extends React.PureComponent {
   }
 }
 
-export default CustomModal;
+export default CustomModalLayout;

@@ -30,7 +30,7 @@ import {ColorPickerDriver} from '../src/ColorPicker/ColorPicker.driver';
 import {ComposerHeaderUniDriver} from '../src/ComposerHeader/ComposerHeader.uni.driver';
 import {ContactItemBuilderDriver} from '../src/ContactItemBuilder/ContactItemBuilder.driver';
 import {CounterBadgeDriver} from '../src/CounterBadge/CounterBadge.driver';
-import {CustomModalUniDriver} from '../src/CustomModal/CustomModal.uni.driver';
+import {CustomModalLayoutUniDriver} from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
 import {DataTableDriver} from '../src/DataTable/DataTable.driver';
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
 import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
@@ -286,7 +286,7 @@ export const messageBoxFunctionalLayoutTestkitFactory: EnzymeTestkitFactory<Mess
 export const cardSubheaderTestkitFactory: EnzymeUniTestkitFactory<SubheaderUniDriver>;
 export const tooltipTestkitFactory: EnzymeTestkitFactory<TooltipDriver>;
 export const TooltipTestkit: EnzymeUniTestkitFactory<TooltipUniDriver>;
-export const customModalTestkitFactory: EnzymeUniTestkitFactory<CustomModalUniDriver>;
+export const customModalLayoutTestkitFactory: EnzymeUniTestkitFactory<CustomModalLayoutUniDriver>;
 export const statusIndicatorTestkitFactory: EnzymeUniTestkitFactory<StatusIndicatorUniDriver>;
 export const baseModalTestkitFactory: EnzymeUniTestkitFactory<BaseModalUniDriver>;
 export const messageModalTestkitFactory: EnzymeUniTestkitFactory<MessageModalUniDriver>;

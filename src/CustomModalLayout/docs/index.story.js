@@ -12,10 +12,9 @@ import {
   playground,
   api,
   testkit,
-  table,
 } from 'wix-storybook-utils/Sections';
 
-import { storySettings } from '../test/designStorySettings';
+import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
 import BasicExample from '!raw-loader!./examples/BasicExample';
@@ -24,10 +23,8 @@ import ModalExample from '!raw-loader!./examples/ModalExample';
 import PageExample from '!raw-loader!./examples/PageExample';
 import TableExmaple from '!raw-loader!./examples/TableExample';
 import MarketingExample from '!raw-loader!./examples/MarketingExample';
-import CustomModal from '..';
+import CustomModalLayout from '..';
 import Checkbox from '../../Checkbox';
-import { Category } from '../../../stories/storiesHierarchy';
-import LinkTo from '@storybook/addon-links/react';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
@@ -43,29 +40,15 @@ export default {
     sideActions: <Checkbox>Check</Checkbox>,
     footnote: 'footnote text',
   },
-  component: CustomModal,
+  component: CustomModalLayout,
   componentPath: '..',
 
   sections: [
     header({
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new/choose',
       sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/CustomModal/',
+        'https://github.com/wix/wix-style-react/tree/master/src/CustomModalLayout/',
     }),
-    columns([
-      table({
-        title: 'Included Components',
-        rows: [
-          [
-            <LinkTo
-              kind={Category.WIP}
-              story="CustomModal"
-            >{`<CustomModal/>`}</LinkTo>,
-            'A custom modal component',
-          ],
-        ],
-      }),
-    ]),
 
     tabs([
       tab({
@@ -74,19 +57,15 @@ export default {
           columns([
             description({
               title: 'Description',
-              text: [
-                'Use this component together with ',
-                <LinkTo
-                  kind={Category.COMPONENTS}
-                  story="Modal"
-                >{`<Modal />`}</LinkTo>,
-                ' to display content in this layout. You may place a title and/or a footer with actions relevant to the displayed content.',
-              ],
+              text:
+                'Use this component together with <Modal /> to display content in this layout. You may place a title and/or a footer with actions relevant to the displayed content.\n',
             }),
           ]),
 
           columns([
-            importExample("import { CustomModal } from 'wix-style-react';"),
+            importExample(
+              "import { CustomModalLayout } from 'wix-style-react';",
+            ),
           ]),
 
           divider(),
@@ -121,7 +100,7 @@ export default {
             description({
               title: 'Opening in a modal',
               text:
-                'Opening the CustomModal is done with the Modal component, usually in the regular size of full-screen',
+                'Opening the CustomModalLayout is done with the Modal component, usually in the regular size of full-screen',
             }),
 
             code({

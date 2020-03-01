@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 
-export interface CustomModalProps {
+export interface CustomModalLayoutProps {
   className?: string,
   dataHook?: string,
   title?: React.ReactNode,
@@ -22,4 +22,4 @@ export interface CustomModalProps {
   children: React.ReactNode,
 }
 
-export default class CustomModal extends React.PureComponent<CustomModalProps>{}
+export default class CustomModalLayout extends React.PureComponent<CustomModalLayoutProps>{}

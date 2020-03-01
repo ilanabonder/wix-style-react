@@ -128,7 +128,7 @@ export const variableInputTestkitFactory: any;
 export const imageTestkitFactory: any;
 export const sidePanelTestkitFactory: any;
 export const fontUpgradeTestkitFactory: any;
-export const customModalTestkitFactory: any;
+export const customModalLayoutTestkitFactory: any;
 export const statusIndicatorTestkitFactory: any;
 export const baseModalTestkitFactory: any;
 export const messageModalTestkitFactory: any;
