@@ -19,91 +19,6 @@ const deprecatedColorList = ['blue', 'green', 'grey', 'red', 'orange'];
 /**
  * Avatar is a type of element that visually represents a user, either as an image, name initials or placeholder icon.
  */
-const Avatar = props => {
-  const {
-    size,
-    presence,
-    indication,
-    color: colorProp,
-    onIndicationClick,
-    dataHook,
-    className,
-    shape,
-    text,
-    placeholder,
-    name,
-    onClick,
-    showIndicationOnHover,
-    ...rest
-  } = props;
-
-  if (deprecatedColorList.indexOf(colorProp) > -1) {
-    deprecationLog(
-      `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
-    );
-  }
-  const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
-  const sizeNumber = getSizeNumber(size);
-  const renderIndication = indication && sizeNumber > minIndicationRenderSize;
-
-  return (
-    <div
-      data-hook={dataHook}
-      className={classNames(className, styles.externalContainer)}
-    >
-      <div
-        {...styles('avatarContainer', {
-          shape,
-          size,
-          indication,
-          presence,
-          presenceType: presence,
-          clickable: !!onClick,
-          showIndicationOnHover,
-        })}
-        data-madefor={isMadefor()}
-      >
-        <div className={styles.coreAvatar}>
-          <CoreAvatar
-            {...{
-              ...rest,
-              placeholder: placeholder ? (
-                placeholder
-              ) : (
-                <AvatarDefaultPlaceholder shape={shape} size={size} />
-              ),
-              text,
-              name,
-              onClick,
-              'data-hook': dataHooks.avatarCore,
-            }}
-            className={classNames(
-              styles.avatar,
-              color && styles[`color${capitalize(color)}`],
-            )}
-          />
-        </div>
-        {presence && <div className={styles.presence} />}
-        {renderIndication && (
-          <div className={styles.indication}>
-            <IconButton
-              className={styles.iconButtonShadow}
-              dataHook={dataHooks.indication}
-              onClick={onIndicationClick}
-              skin="inverted"
-              shape={shape}
-              size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
-            >
-              {indication}
-            </IconButton>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-Avatar.displayName = 'Avatar';
 
 const CoreAvatarPropTypes = {
   /**
@@ -134,39 +49,156 @@ const CoreAvatarPropTypes = {
   onClick: PropTypes.func,
 };
 
-Avatar.propTypes = {
-  ...CoreAvatarPropTypes,
-  /** Avatar size. Options like 'size90' mean that the width and height are 90px. */
-  size: PropTypes.oneOf([
-    'size90',
-    'size72',
-    'size60',
-    'size48',
-    'size36',
-    'size30',
-    'size24',
-    'size18',
-  ]),
-  /**
-   * Background color of the avatar. When no color is provided the color is determined
-   * by the provided text or name so that each name will receive a different color.
-   */
-  color: PropTypes.oneOf(['A1', 'A2', 'A3', 'A4', 'A5', 'A6']),
-  /** Shape of the image, can be square or circle. */
-  shape: PropTypes.oneOf(['circle', 'square']),
-  /** Classes to be applied to the root element. */
-  className: PropTypes.string,
-  /** Applied as data-hook HTML attribute that can be used to create driver in testing. */
-  dataHook: PropTypes.string,
-  /** Avatar presence. Options like 'online' mean that the contact is online. */
-  presence: PropTypes.oneOf(['online', 'offline', 'busy']),
-  /** A node to be rendered as Indication. */
-  indication: PropTypes.node,
-  /** Function which triggers on indication click. */
-  onIndicationClick: PropTypes.func,
-  /** Show indication on hover. */
-  showIndicationOnHover: PropTypes.bool,
-};
+class Avatar extends React.PureComponent {
+  static displayName = 'Avatar';
+
+  static propTypes = {
+    ...CoreAvatarPropTypes,
+    /** Avatar size. Options like 'size90' mean that the width and height are 90px. */
+    size: PropTypes.oneOf([
+      'size90',
+      'size72',
+      'size60',
+      'size48',
+      'size36',
+      'size30',
+      'size24',
+      'size18',
+    ]),
+    /**
+     * Background color of the avatar. When no color is provided the color is determined
+     * by the provided text or name so that each name will receive a different color.
+     */
+    color: PropTypes.oneOf(['A1', 'A2', 'A3', 'A4', 'A5', 'A6']),
+    /** Shape of the image, can be square or circle. */
+    shape: PropTypes.oneOf(['circle', 'square']),
+    /** Classes to be applied to the root element. */
+    className: PropTypes.string,
+    /** Applied as data-hook HTML attribute that can be used to create driver in testing. */
+    dataHook: PropTypes.string,
+    /** Avatar presence. Options like 'online' mean that the contact is online. */
+    presence: PropTypes.oneOf(['online', 'offline', 'busy']),
+    /** A node to be rendered as Indication. */
+    indication: PropTypes.node,
+    /** Function which triggers on indication click. */
+    onIndicationClick: PropTypes.func,
+    /** Show indication on hover. */
+    showIndicationOnHover: PropTypes.bool,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      fadeIndication: false,
+      showIndication: false,
+    };
+  }
+
+  _onMouseEnter = () => {
+    if (this.props.showIndicationOnHover) {
+      this.setState({ showIndication: true });
+    }
+  };
+
+  _onMouseLeave = () => {
+    if (this.props.showIndicationOnHover) {
+      this.setState({ fadeIndication: true });
+      setTimeout(
+        () => this.setState({ fadeIndication: false, showIndication: false }),
+        150,
+      );
+    }
+  };
+
+  render() {
+    const {
+      size,
+      presence,
+      indication,
+      color: colorProp,
+      onIndicationClick,
+      dataHook,
+      className,
+      shape,
+      text,
+      placeholder,
+      name,
+      onClick,
+      showIndicationOnHover,
+      ...rest
+    } = this.props;
+
+    if (deprecatedColorList.indexOf(colorProp) > -1) {
+      deprecationLog(
+        `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
+      );
+    }
+    const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
+    const sizeNumber = getSizeNumber(size);
+    const renderOnHover = !showIndicationOnHover || this.state.showIndication;
+    const renderIndication =
+      indication && renderOnHover && sizeNumber > minIndicationRenderSize;
+
+    return (
+      <div
+        data-hook={dataHook}
+        className={classNames(className, styles.externalContainer)}
+      >
+        <div
+          {...{ 'data-hook': dataHooks.avatarWSR }}
+          onMouseEnter={this._onMouseEnter}
+          onMouseLeave={this._onMouseLeave}
+          {...styles('avatarContainer', {
+            shape,
+            size,
+            indication,
+            presence,
+            presenceType: presence,
+            clickable: !!onClick,
+            fadeIndication: this.state.fadeIndication,
+          })}
+          data-madefor={isMadefor()}
+        >
+          <div className={styles.coreAvatar}>
+            <CoreAvatar
+              {...{
+                ...rest,
+                placeholder: placeholder ? (
+                  placeholder
+                ) : (
+                  <AvatarDefaultPlaceholder shape={shape} size={size} />
+                ),
+                text,
+                name,
+                onClick,
+                'data-hook': dataHooks.avatarCore,
+              }}
+              className={classNames(
+                styles.avatar,
+                color && styles[`color${capitalize(color)}`],
+              )}
+            />
+          </div>
+          {presence && <div className={styles.presence} />}
+          {renderIndication && (
+            <div className={styles.indication}>
+              <IconButton
+                className={styles.iconButtonShadow}
+                dataHook={dataHooks.indication}
+                onClick={onIndicationClick}
+                skin="inverted"
+                shape={shape}
+                size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
+              >
+                {indication}
+              </IconButton>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+}
 
 const AvatarDefaultPlaceholder = ({ shape, size }) =>
   shape !== avatarShapes.square
