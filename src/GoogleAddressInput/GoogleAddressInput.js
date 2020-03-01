@@ -302,7 +302,6 @@ GoogleAddressInput.displayName = 'GoogleAddressInput';
 
 GoogleAddressInput.defaultProps = {
   magnifyingGlass: true,
-  theme: Input.defaultProps.theme,
   autoSelect: true,
   footerOptions: {},
   clearSuggestionsOnBlur: true,
@@ -348,7 +347,6 @@ GoogleAddressInput.propTypes = {
 
   /** Show or hide magnifying glass icon */
   magnifyingGlass: PropTypes.bool,
-  theme: Input.propTypes.theme,
 
   /** Sets the input to readOnly */
   readOnly: PropTypes.bool,
