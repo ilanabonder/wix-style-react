@@ -56,7 +56,6 @@ export interface InputDriver extends BaseDriver {
   isFocusedStyle: () => boolean;
   isHoveredStyle: () => boolean;
   isDisabled: () => boolean;
-  isOfStyle: (style: InputTheme) => boolean;
   isOfSize: (size: InputSize) => boolean;
   getSize: () => string | null;
   isFocus: () => boolean;

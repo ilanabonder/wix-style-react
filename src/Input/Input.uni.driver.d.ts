@@ -27,7 +27,6 @@ export interface InputUniDriver extends BaseUniDriver {
   getValue: () => Promise<string>;
   getText: () => Promise<string>;
   getPlaceholder: () => Promise<string | null>;
-  isOfStyle: (style: InputTheme) => Promise<boolean>;
   isOfSize: (size: InputSize) => Promise<boolean>;
   getSize: () => Promise<InputSize | null>;
   isDisabled: () => Promise<boolean>;
