@@ -4,7 +4,7 @@ import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import MessageModal from '../MessageModal';
 import { messageModalPrivateDriverFactory } from './MessageModal.private.uni.driver';
 import { dataHooks } from '../constants';
-import { dataHooks as baseDataHooks } from '../../BaseModal/constants';
+import { dataHooks as baseDataHooks } from '../../BaseModalLayout/constants';
 
 describe('MessageModal', () => {
   const render = createRendererWithUniDriver(messageModalPrivateDriverFactory);

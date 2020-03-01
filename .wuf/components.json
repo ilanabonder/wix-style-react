@@ -464,8 +464,8 @@
   "StatusIndicator": {
     "path": "src/StatusIndicator"
   },
-  "BaseModal": {
-    "path": "src/BaseModal"
+  "BaseModalLayout": {
+    "path": "src/BaseModalLayout"
   },
   "MessageModal": {
     "path": "src/MessageModal"

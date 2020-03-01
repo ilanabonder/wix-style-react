@@ -2,7 +2,7 @@ import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { dataHooks } from './constants';
 import { buttonDriverFactory } from '../Button/Button.uni.driver';
 
-export const baseModalDriverFactory = (base, body) => {
+export const baseModalLayoutDriverFactory = (base, body) => {
   const getPrimaryButton = () =>
     buttonDriverFactory(base.$(`[data-hook="${dataHooks.primaryButton}"]`));
   const getSecondaryButton = () =>

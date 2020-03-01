@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './MessageModal.st.css';
-import BaseModal from '../BaseModal';
+import BaseModalLayout from '../BaseModalLayout';
 
 const themeMapping = {
   standard: {
@@ -56,11 +56,11 @@ class MessageModal extends React.PureComponent {
         style={{ width }}
       >
         {illustration && this._renderIllustration()}
-        <BaseModal
+        <BaseModalLayout
           {...this.props}
           secondaryButtonProps={secondaryButtonProps}
           primaryButtonProps={primaryButtonProps}
-        ></BaseModal>
+        ></BaseModalLayout>
       </div>
     );
   }
@@ -69,7 +69,7 @@ class MessageModal extends React.PureComponent {
 MessageModal.displayName = 'MessageModal';
 
 MessageModal.propTypes = {
-  ...BaseModal.propTypes,
+  ...BaseModalLayout.propTypes,
 
   /** Illustration URL or custom element. */
   illustration: PropTypes.node,
@@ -78,7 +78,7 @@ MessageModal.propTypes = {
 };
 
 MessageModal.defaultProps = {
-  ...BaseModal.defaultProps,
+  ...BaseModalLayout.defaultProps,
   theme: 'standard',
 };
 

@@ -1,7 +1,7 @@
 import {BaseUniDriver} from 'wix-ui-test-utils/base-driver';
 import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import {CustomModalLayoutDriver} from '../src/CustomModalLayout/CustomModalLayout.uni.driver';
-import {BaseModalDriver} from '../src/BaseModal/BaseModal.uni.driver';
+import {BaseModalLayoutDriver} from '../src/BaseModalLayout/BaseModalLayout.uni.driver';
 import {MessageModalDriver} from '../src/MessageModal/MessageModal.uni.driver';
 import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
@@ -31,7 +31,7 @@ declare namespace VanillaTestkit {
   const typed = {
     Avatar: 'VanillaUniTestkitFactory<AvatarDriver>',
     CustomModalLayout: 'VanillaUniTestkitFactory<CustomModalLayoutDriver>',
-    BaseModal: 'VanillaUniTestkitFactory<BaseModalDriver>',
+    BaseModalLayout: 'VanillaUniTestkitFactory<BaseModalLayoutDriver>',
     MessageModal: 'VanillaUniTestkitFactory<MessageModalDriver>',
     InfoIcon: 'VanillaUniTestkitFactory<InfoIconDriver>',
     SocialButton: 'VanillaUniTestkitFactory<SocialButtonDriver>',

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Text from '../Text';
 import Button from '../Button';
-import styles from './BaseModal.st.css';
+import styles from './BaseModalLayout.st.css';
 import { dataHooks } from './constants';
 import CloseButton from '../CloseButton';
 import Divider from '../Divider';
@@ -11,8 +11,8 @@ import Heading from '../Heading/Heading';
 import Box from '../Box';
 
 /** Private component to be used by all public modals. Represents the common internals of all modals */
-class BaseModal extends React.PureComponent {
-  static displayName = 'BaseModal';
+class BaseModalLayout extends React.PureComponent {
+  static displayName = 'BaseModalLayout';
 
   static propTypes = {
     /** The modal's title */
@@ -151,4 +151,4 @@ class BaseModal extends React.PureComponent {
   }
 }
 
-export default BaseModal;
+export default BaseModalLayout;

@@ -117,7 +117,7 @@ const files = [
   ['ToggleSwitch.bundle.min.js', 17],
   ['Tooltip.bundle.min.js', 40],
   ['SocialButton.bundle.min.js', 17],
-  ['BaseModal.bundle.min.js', 10],
+  ['BaseModalLayout.bundle.min.js', 10],
   ['MessageModal.bundle.min.js', 10],
 ];
 

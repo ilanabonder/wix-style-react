@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface BaseModalProps {
+export interface BaseModalLayoutProps {
   className?: string,
   dataHook?: string,
   title?: React.ReactNode,
@@ -20,4 +20,4 @@ export interface BaseModalProps {
   children: React.ReactNode,
 }
 
-export default class BaseModal extends React.PureComponent<BaseModalProps>{}
+export default class BaseModalLayout extends React.PureComponent<BaseModalLayoutProps>{}

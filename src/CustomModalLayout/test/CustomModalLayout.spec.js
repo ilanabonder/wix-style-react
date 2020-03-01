@@ -5,7 +5,7 @@ import CustomModalLayout from '../CustomModalLayout';
 import { customModalLayoutPrivateDriverFactory } from './CustomModalLayout.private.uni.driver';
 import Checkbox from '../../Checkbox';
 import { dataHooks } from '../constants';
-import { dataHooks as baseDataHooks } from '../../BaseModal/constants';
+import { dataHooks as baseDataHooks } from '../../BaseModalLayout/constants';
 
 describe('CustomModalLayout', () => {
   const render = createRendererWithUniDriver(

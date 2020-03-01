@@ -1,14 +1,16 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
-import BaseModal from '../BaseModal';
-import { baseModalPrivateDriverFactory } from './BaseModal.private.uni.driver';
+import BaseModalLayout from '../BaseModalLayout';
+import { baseModalLayoutPrivateDriverFactory } from './BaseModalLayout.private.uni.driver';
 
 import Checkbox from '../../Checkbox';
 import { dataHooks } from '../constants';
 
-describe('BaseModal', () => {
-  const render = createRendererWithUniDriver(baseModalPrivateDriverFactory);
+describe('BaseModalLayout', () => {
+  const render = createRendererWithUniDriver(
+    baseModalLayoutPrivateDriverFactory,
+  );
 
   afterEach(() => {
     cleanup();
@@ -16,15 +18,15 @@ describe('BaseModal', () => {
 
   it('should render', async () => {
     const { driver } = render(
-      <BaseModal
-        dataHook={dataHooks.baseModal}
+      <BaseModalLayout
+        dataHook={dataHooks.baseModalLayout}
         primaryButtonText={'Confirm'}
         primaryButtonProps={{ dataHook: dataHooks.primaryButton }}
         secondaryButtonText={'Cancel'}
         secondaryButtonProps={{ dataHook: dataHooks.secondaryButton }}
       >
         Content
-      </BaseModal>,
+      </BaseModalLayout>,
     );
 
     expect(await driver.exists()).toBe(true);
@@ -33,7 +35,7 @@ describe('BaseModal', () => {
   });
   it('should render children', async () => {
     const children = <div data-hook="child">Child div</div>;
-    const { driver } = render(<BaseModal>{children}</BaseModal>);
+    const { driver } = render(<BaseModalLayout>{children}</BaseModalLayout>);
 
     expect(await driver.childExists('[data-hook=child]')).toBe(true);
   });
@@ -41,30 +43,27 @@ describe('BaseModal', () => {
   it('should receive class name', async () => {
     const expectedClass = 'classy';
     const { driver } = render(
-      <BaseModal className={expectedClass}>Content</BaseModal>,
+      <BaseModalLayout className={expectedClass}>Content</BaseModalLayout>,
     );
 
     expect(await driver.hasClass(expectedClass)).toBe(true);
   });
 
-  it('should render with the given width', async () => {
-    const width = '600px';
-    const { driver } = render(<BaseModal width={width}>Content</BaseModal>);
-
-    expect(await driver.getModalWidth()).toEqual(width);
-  });
-
   it('should render title', async () => {
     const title = 'Modal Title';
-    const { driver } = render(<BaseModal title={title}>Content</BaseModal>);
+    const { driver } = render(
+      <BaseModalLayout title={title}>Content</BaseModalLayout>,
+    );
 
     expect(await driver.getTitleText()).toEqual(title);
   });
 
   it('should render title node', async () => {
     const titleText = 'Modal Title';
-    const titleNode = <div data-hook="baseModal-title">{titleText}</div>;
-    const { driver } = render(<BaseModal title={titleNode}>Content</BaseModal>);
+    const titleNode = <div data-hook="baseModalLayout-title">{titleText}</div>;
+    const { driver } = render(
+      <BaseModalLayout title={titleNode}>Content</BaseModalLayout>,
+    );
 
     expect(await driver.getTitleText()).toEqual(titleText);
   });
@@ -73,9 +72,9 @@ describe('BaseModal', () => {
     const subtitle = 'Subtitle here';
     const title = 'Modal Title';
     const { driver } = render(
-      <BaseModal title={title} subtitle={subtitle}>
+      <BaseModalLayout title={title} subtitle={subtitle}>
         Content
-      </BaseModal>,
+      </BaseModalLayout>,
     );
 
     expect(await driver.getSubtitleText()).toEqual(subtitle);
@@ -87,7 +86,9 @@ describe('BaseModal', () => {
       primaryButtonOnClick: jest.fn(),
       primaryButtonProps: { dataHook: dataHooks.primaryButton },
     };
-    const { driver } = render(<BaseModal {...props}>Content</BaseModal>);
+    const { driver } = render(
+      <BaseModalLayout {...props}>Content</BaseModalLayout>,
+    );
     await driver.clickPrimaryButton();
     expect(props.primaryButtonOnClick).toHaveBeenCalledTimes(1);
   });
@@ -98,7 +99,9 @@ describe('BaseModal', () => {
       secondaryButtonOnClick: jest.fn(),
       secondaryButtonProps: { dataHook: dataHooks.secondaryButton },
     };
-    const { driver } = render(<BaseModal {...props}>Content</BaseModal>);
+    const { driver } = render(
+      <BaseModalLayout {...props}>Content</BaseModalLayout>,
+    );
     await driver.clickSecondaryButton();
     expect(props.secondaryButtonOnClick).toHaveBeenCalledTimes(1);
   });
@@ -106,7 +109,9 @@ describe('BaseModal', () => {
     const props = {
       onCloseButtonClick: jest.fn(),
     };
-    const { driver } = render(<BaseModal {...props}>Content</BaseModal>);
+    const { driver } = render(
+      <BaseModalLayout {...props}>Content</BaseModalLayout>,
+    );
 
     await driver.clickCloseButton();
 
@@ -115,24 +120,24 @@ describe('BaseModal', () => {
 
   it('should allow changing the primary button text', async () => {
     const { driver } = render(
-      <BaseModal
+      <BaseModalLayout
         primaryButtonText="Press me"
         primaryButtonProps={{ dataHook: dataHooks.primaryButton }}
       >
         Content
-      </BaseModal>,
+      </BaseModalLayout>,
     );
     expect(await driver.getPrimaryButtonText()).toEqual('Press me');
   });
 
   it('should allow changing the secondary button text', async () => {
     const { driver } = render(
-      <BaseModal
+      <BaseModalLayout
         secondaryButtonText="Don't press me"
         secondaryButtonProps={{ dataHook: dataHooks.secondaryButton }}
       >
         Content
-      </BaseModal>,
+      </BaseModalLayout>,
     );
     expect(await driver.getSecondaryButtonText()).toEqual("Don't press me");
   });
@@ -146,7 +151,7 @@ describe('BaseModal', () => {
       </div>
     );
     const { driver } = render(
-      <BaseModal sideActions={sideActions}>Content</BaseModal>,
+      <BaseModalLayout sideActions={sideActions}>Content</BaseModalLayout>,
     );
 
     expect(await driver.childExists(selector)).toBe(true);
@@ -157,7 +162,7 @@ describe('BaseModal', () => {
     const selector = '[data-hook="' + dataHook + '"]';
     const footnote = <div data-hook={dataHook}>Footnote here</div>;
     const { driver } = render(
-      <BaseModal footnote={footnote}>Content</BaseModal>,
+      <BaseModalLayout footnote={footnote}>Content</BaseModalLayout>,
     );
 
     expect(await driver.childExists(selector)).toBe(true);

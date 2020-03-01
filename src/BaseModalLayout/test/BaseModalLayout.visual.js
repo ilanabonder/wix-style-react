@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import BaseModal from '../BaseModal';
+import BaseModalLayout from '../BaseModalLayout';
 
 const commonProps = {
   //use for repeated props across the tests (e.g. {buttonText: 'example'})
@@ -24,7 +24,7 @@ tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`BaseModal${describe ? '/' + describe : ''}`, module).add(
       it,
-      () => <BaseModal {...commonProps} {...props} />,
+      () => <BaseModalLayout {...commonProps} {...props} />,
     );
   });
 });

@@ -1,6 +1,6 @@
-import { baseModalDriverFactory as publicDriverFactory } from '../BaseModal.uni.driver';
+import { baseModalLayoutDriverFactory as publicDriverFactory } from '../BaseModalLayout.uni.driver';
 
-export const baseModalPrivateDriverFactory = (base, body) => {
+export const baseModalLayoutPrivateDriverFactory = (base, body) => {
   return {
     ...publicDriverFactory(base, body),
 

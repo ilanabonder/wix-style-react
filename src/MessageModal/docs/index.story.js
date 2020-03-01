@@ -50,7 +50,6 @@ export default {
     header({
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/MessageModal/',
-      component: <MessageModal />,
     }),
 
     tabs([
